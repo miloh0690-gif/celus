@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TechZone Bolivia — Catálogo de Tecnología</title>
+<title>TechZone Bolivia — Catálogo</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
@@ -11,91 +11,88 @@
 :root{
   --bg:#0A0B0F;--bg2:#13141A;--bg3:#1C1E27;
   --accent:#00E5A0;--accent2:#0066FF;--text:#F0F2FF;--muted:#8890A8;
-  --card:#161820;--border:rgba(255,255,255,0.07);
+  --card:#161820;--border:rgba(255,255,255,0.07);--danger:#FF3B6B;
 }
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}
 h1,h2,h3,.logo{font-family:'Syne',sans-serif}
-
-/* NAV */
-nav{background:rgba(10,11,15,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
-.logo{font-size:1.4rem;font-weight:800;letter-spacing:-0.5px}
+nav{background:rgba(10,11,15,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.logo{font-size:1.4rem;font-weight:800;letter-spacing:-0.5px;cursor:pointer}
 .logo span{color:var(--accent)}
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;cursor:pointer;transition:color 0.2s}
-.nav-links a:hover{color:var(--text)}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
 .nav-right{display:flex;gap:12px;align-items:center}
 .cart-btn{background:var(--accent);color:#000;border:none;padding:8px 18px;border-radius:8px;font-weight:600;font-size:0.85rem;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:'DM Sans',sans-serif}
 .cart-count{background:#000;color:var(--accent);border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700}
 .search-bar{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 14px;color:var(--text);font-size:0.85rem;width:220px;font-family:'DM Sans',sans-serif;outline:none}
 .search-bar:focus{border-color:var(--accent)}
-
-/* HERO */
-.hero{padding:4rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
+.config-banner{background:rgba(255,59,107,0.12);border:1px solid rgba(255,59,107,0.35);border-radius:10px;padding:12px 20px;margin:1.5rem 2rem 0;display:flex;align-items:center;gap:12px;font-size:0.84rem;flex-wrap:wrap}
+.config-banner i{color:var(--danger);font-size:1.1rem;flex-shrink:0}
+.config-banner input{flex:1;min-width:200px;background:var(--bg3);border:1px solid rgba(255,59,107,0.4);border-radius:6px;padding:6px 12px;color:var(--text);font-size:0.82rem;font-family:'DM Sans',sans-serif;outline:none}
+.config-banner button{background:var(--danger);color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:0.82rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.config-banner.hidden{display:none}
+.hero{padding:3.5rem 2rem 2.5rem;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(0,229,160,0.08) 0%,transparent 70%);pointer-events:none}
-.hero h1{font-size:3.2rem;font-weight:800;letter-spacing:-2px;line-height:1.1;margin-bottom:1rem}
+.hero h1{font-size:3rem;font-weight:800;letter-spacing:-2px;line-height:1.1;margin-bottom:1rem}
 .hero h1 em{color:var(--accent);font-style:normal}
 .hero p{color:var(--muted);font-size:1.05rem;max-width:520px;margin:0 auto 2rem;line-height:1.7}
-.hero-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+.hero-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
 .tag{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:6px 16px;font-size:0.8rem;color:var(--muted);display:flex;align-items:center;gap:6px}
 .tag i{color:var(--accent)}
 .free-ship-banner{background:linear-gradient(90deg,rgba(0,229,160,0.12),rgba(0,102,255,0.12));border:1px solid rgba(0,229,160,0.25);border-radius:10px;padding:12px 20px;display:inline-flex;align-items:center;gap:10px;font-size:0.88rem;font-weight:500}
-.free-ship-banner i{color:var(--accent);font-size:1.1rem}
-
-/* FILTERS */
-.filters{padding:1.5rem 2rem;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.free-ship-banner i{color:var(--accent)}
+.stats-bar{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:1.5rem 2rem;padding:1.2rem;background:var(--bg2);border:1px solid var(--border);border-radius:14px}
+.stat-item{text-align:center}
+.stat-val{font-size:1.4rem;font-weight:800;font-family:'Syne',sans-serif;color:var(--accent)}
+.stat-lbl{font-size:0.7rem;color:var(--muted);margin-top:2px}
+.filters{padding:1.2rem 2rem;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .filter-btn{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 18px;color:var(--muted);font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
 .filter-btn:hover,.filter-btn.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600}
 .filter-label{color:var(--muted);font-size:0.85rem;margin-right:4px}
-
-/* CATALOG GRID */
 .section{padding:0 2rem 3rem}
 .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
 .section-title{font-size:1.4rem;font-weight:700}
-.view-all{color:var(--accent);font-size:0.85rem;text-decoration:none;cursor:pointer}
+.view-all{color:var(--accent);font-size:0.85rem;cursor:pointer}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
-
-/* PRODUCT CARD */
 .pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:transform 0.2s,border-color 0.2s;cursor:pointer}
 .pcard:hover{transform:translateY(-4px);border-color:rgba(0,229,160,0.3)}
+.pcard.out-of-stock{opacity:.5;pointer-events:none}
 .pimg{background:var(--bg3);height:150px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative}
 .badge{position:absolute;top:10px;right:10px;background:var(--accent);color:#000;font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:6px;font-family:'Syne',sans-serif}
 .badge.hot{background:#FF3B6B;color:#fff}
 .badge.free{background:var(--accent2);color:#fff}
+.stock-badge{position:absolute;top:10px;left:10px;background:rgba(255,59,107,0.9);color:#fff;font-size:0.6rem;font-weight:700;padding:2px 7px;border-radius:5px}
 .pinfo{padding:14px}
 .pname{font-size:0.92rem;font-weight:600;margin-bottom:4px;line-height:1.3}
-.pbrand{font-size:0.75rem;color:var(--muted);margin-bottom:8px}
-.prating{display:flex;align-items:center;gap:4px;margin-bottom:8px}
-.stars{color:#FFB800;font-size:0.75rem}
-.rcount{color:var(--muted);font-size:0.72rem}
+.pbrand{font-size:0.75rem;color:var(--muted);margin-bottom:6px}
+.pstock-line{font-size:0.72rem;color:var(--muted);margin-bottom:6px}
+.pstock-line span{color:var(--accent);font-weight:600}
 .pprice-row{display:flex;align-items:center;justify-content:space-between}
 .pprice{font-size:1.1rem;font-weight:700;font-family:'Syne',sans-serif}
 .pprice-old{font-size:0.75rem;color:var(--muted);text-decoration:line-through;margin-left:4px}
 .add-btn{background:var(--bg);border:1px solid var(--accent);color:var(--accent);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;font-size:1rem}
 .add-btn:hover{background:var(--accent);color:#000}
 .ship-info{font-size:0.72rem;color:var(--accent);margin-top:6px;display:flex;align-items:center;gap:4px}
-
-/* DELIVERY ZONES */
+.loading{text-align:center;padding:3rem 2rem;color:var(--muted)}
+.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto 1rem}
+@keyframes spin{to{transform:rotate(360deg)}}
 .zones{background:var(--bg2);border-radius:16px;padding:2rem;margin:0 2rem 3rem}
 .zones h2{font-size:1.3rem;font-weight:700;margin-bottom:0.5rem}
 .zones p{color:var(--muted);font-size:0.88rem;margin-bottom:1.5rem}
-.zones-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.zones-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .zone-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
 .zone-icon{font-size:1.8rem;margin-bottom:8px}
 .zone-name{font-size:0.88rem;font-weight:600;margin-bottom:4px}
 .zone-price{font-size:0.78rem;font-weight:600}
 .zone-days{font-size:0.72rem;color:var(--muted)}
-.free{color:var(--accent)}
-.paid{color:#FFB800}
-
-/* FEATURES */
+.free-price{color:var(--accent)}
+.paid-price{color:#FFB800}
 .features{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:0 2rem 3rem}
 .feat{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.2rem}
 .feat-icon{font-size:1.5rem;margin-bottom:10px;color:var(--accent)}
 .feat h3{font-size:0.92rem;font-weight:600;margin-bottom:4px}
 .feat p{font-size:0.8rem;color:var(--muted);line-height:1.5}
-
-/* ORDER PANEL */
-.order-panel{position:fixed;top:0;right:-100%;width:340px;height:100vh;background:var(--bg2);border-left:1px solid var(--border);z-index:200;transition:right 0.3s;display:flex;flex-direction:column}
+.order-panel{position:fixed;top:0;right:-100%;width:360px;height:100vh;background:var(--bg2);border-left:1px solid var(--border);z-index:200;transition:right 0.3s;display:flex;flex-direction:column}
 .order-panel.open{right:0}
 .panel-header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
 .panel-header h3{font-size:1rem;font-weight:700}
@@ -109,38 +106,44 @@ nav{background:rgba(10,11,15,0.95);backdrop-filter:blur(12px);border-bottom:1px 
 .ci-qty{display:flex;align-items:center;gap:6px;margin-top:4px}
 .qty-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text);width:22px;height:22px;border-radius:4px;cursor:pointer;font-size:0.8rem}
 .qty-num{font-size:0.82rem;font-weight:600;min-width:14px;text-align:center}
-.remove-btn{color:var(--muted);background:none;border:none;cursor:pointer;font-size:0.9rem;padding:2px}
+.remove-btn{color:var(--muted);background:none;border:none;cursor:pointer;font-size:0.9rem;padding:2px;margin-left:auto}
 .panel-footer{padding:1.2rem 1.5rem;border-top:1px solid var(--border)}
 .total-row{display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.9rem}
 .total-row.big{font-size:1.1rem;font-weight:700;font-family:'Syne',sans-serif}
 .zone-select{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px 14px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.85rem;margin:10px 0;outline:none}
 .zone-select:focus{border-color:var(--accent)}
-.checkout-btn{width:100%;background:var(--accent);color:#000;border:none;padding:13px;border-radius:10px;font-weight:700;font-size:0.95rem;cursor:pointer;font-family:'Syne',sans-serif;letter-spacing:-0.3px;transition:opacity 0.2s}
+.client-form input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.83rem;outline:none;margin-bottom:6px}
+.client-form input:focus{border-color:var(--accent)}
+.checkout-btn{width:100%;background:var(--accent);color:#000;border:none;padding:13px;border-radius:10px;font-weight:700;font-size:0.95rem;cursor:pointer;font-family:'Syne',sans-serif;transition:opacity 0.2s;margin-top:8px}
 .checkout-btn:hover{opacity:0.88}
+.checkout-btn:disabled{opacity:0.4;cursor:not-allowed}
+.saving-msg{text-align:center;font-size:0.82rem;color:var(--accent);padding:4px 0;display:none}
 .empty-cart{text-align:center;padding:3rem 1rem;color:var(--muted)}
 .empty-cart i{font-size:3rem;display:block;margin-bottom:1rem;opacity:0.4}
-
-/* ADMIN HINT */
-.admin-bar{background:rgba(0,102,255,0.1);border:1px solid rgba(0,102,255,0.25);border-radius:10px;padding:10px 16px;margin:0 2rem 1.5rem;display:flex;align-items:center;gap:10px;font-size:0.82rem}
-.admin-bar i{color:var(--accent2)}
-
-/* FOOTER */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg2);border:1px solid var(--accent);border-radius:10px;padding:12px 24px;font-size:0.88rem;font-weight:500;z-index:999;opacity:0;transition:all 0.3s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.error{border-color:var(--danger);color:var(--danger)}
 footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--muted);font-size:0.82rem}
 .divider{height:1px;background:var(--border);margin:0 2rem 2rem}
 </style>
 </head>
 <body>
 
+<script>
+  // =====================================================
+  // ⬇️  PEGA TU URL DE APPS SCRIPT ENTRE LAS COMILLAS
+  // =====================================================
+  const SHEET_API_URL   = "https://script.google.com/macros/s/AKfycbw4AzxIWGGf_9rMzsCU4FljKIMnA907kaqwBrWXqu7XsOqqB59wejl8cBvJJhWTePKNGw/exec";
+  const WHATSAPP_NUMBER = "59170000000"; // sin + ni espacios
+</script>
+
 <div id="app">
 
-<!-- NAVEGACIÓN -->
 <nav>
-  <div class="logo">Tech<span>Zone</span></div>
+  <div class="logo" onclick="showSection('catalog')">Tech<span>Zone</span></div>
   <div class="nav-links">
-    <a onclick="filterCat('all')">Catálogo</a>
-    <a href="#">Envíos</a>
-    <a href="#">Mis pedidos</a>
-    <a href="#">Soporte</a>
+    <a onclick="showSection('catalog')" id="nav-catalog" class="active">Catálogo</a>
+    <a onclick="showSection('zones')"   id="nav-zones">Envíos</a>
   </div>
   <div class="nav-right">
     <input class="search-bar" placeholder="🔍  Buscar producto..." id="searchInput" oninput="renderProducts()">
@@ -151,15 +154,21 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;tex
   </div>
 </nav>
 
-<!-- HERO -->
+<div class="config-banner" id="configBanner">
+  <i class="ti ti-alert-triangle"></i>
+  <span><strong>Conecta tu Google Sheet:</strong> pega aquí la URL de tu Apps Script →</span>
+  <input type="text" id="urlInput" placeholder="https://script.google.com/macros/s/...">
+  <button onclick="saveApiUrl()">Guardar URL</button>
+</div>
+
 <div class="hero">
   <h1>Tecnología al alcance<br>de todo <em>Bolivia</em></h1>
-  <p>Catálogo actualizado a diario con los mejores equipos. Pedido fácil, entrega rápida, soporte real.</p>
+  <p>Catálogo actualizado en tiempo real desde Google Sheets. Pedido fácil, entrega rápida.</p>
   <div class="hero-tags">
     <span class="tag"><i class="ti ti-shield-check"></i> Garantía oficial</span>
     <span class="tag"><i class="ti ti-credit-card"></i> Pago contra entrega</span>
     <span class="tag"><i class="ti ti-headset"></i> Soporte 24/7</span>
-    <span class="tag"><i class="ti ti-star"></i> +2,400 clientes</span>
+    <span class="tag"><i class="ti ti-refresh"></i> Stock en tiempo real</span>
   </div>
   <div class="free-ship-banner">
     <i class="ti ti-truck-delivery"></i>
@@ -167,80 +176,55 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;tex
   </div>
 </div>
 
-<!-- ADMIN BAR -->
-<div class="admin-bar">
-  <i class="ti ti-settings"></i>
-  <span><strong>Panel administrador:</strong> agrega, edita o elimina productos desde tu panel sin código.</span>
-  <button style="margin-left:auto;background:rgba(0,102,255,0.2);border:1px solid rgba(0,102,255,0.4);color:#6B9FFF;border-radius:6px;padding:4px 12px;font-size:0.8rem;cursor:pointer">+ Añadir producto ↗</button>
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-val" id="stat-ventas">—</div><div class="stat-lbl">Total Ventas (Bs.)</div></div>
+  <div class="stat-item"><div class="stat-val" id="stat-pedidos">—</div><div class="stat-lbl">Pedidos totales</div></div>
+  <div class="stat-item"><div class="stat-val" id="stat-clientes">—</div><div class="stat-lbl">Clientes</div></div>
+  <div class="stat-item"><div class="stat-val" id="stat-pendientes">—</div><div class="stat-lbl">Pendientes</div></div>
+  <div class="stat-item"><div class="stat-val" id="stat-stock" style="color:#FFB800">—</div><div class="stat-lbl">Stock bajo</div></div>
 </div>
 
-<!-- FILTROS -->
-<div class="filters">
-  <span class="filter-label">Categoría:</span>
-  <button class="filter-btn active" id="f-all" onclick="filterCat('all')">Todo</button>
-  <button class="filter-btn" id="f-laptops" onclick="filterCat('laptops')">Laptops</button>
-  <button class="filter-btn" id="f-phones" onclick="filterCat('phones')">Celulares</button>
-  <button class="filter-btn" id="f-audio" onclick="filterCat('audio')">Audio</button>
-  <button class="filter-btn" id="f-accesorios" onclick="filterCat('accesorios')">Accesorios</button>
-  <button class="filter-btn" id="f-tablets" onclick="filterCat('tablets')">Tablets</button>
+<div id="section-catalog">
+  <div class="filters">
+    <span class="filter-label">Categoría:</span>
+    <button class="filter-btn active" id="f-all"        onclick="filterCat('all')">Todo</button>
+    <button class="filter-btn"        id="f-laptops"    onclick="filterCat('laptops')">Laptops</button>
+    <button class="filter-btn"        id="f-phones"     onclick="filterCat('phones')">Celulares</button>
+    <button class="filter-btn"        id="f-audio"      onclick="filterCat('audio')">Audio</button>
+    <button class="filter-btn"        id="f-accesorios" onclick="filterCat('accesorios')">Accesorios</button>
+    <button class="filter-btn"        id="f-tablets"    onclick="filterCat('tablets')">Tablets</button>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">🔥 Productos disponibles</span>
+      <a class="view-all" onclick="filterCat('all')">Ver todo →</a>
+    </div>
+    <div id="productGrid" class="grid">
+      <div class="loading" style="grid-column:1/-1"><div class="spinner"></div>Cargando productos...</div>
+    </div>
+  </div>
+  <div class="features">
+    <div class="feat"><div class="feat-icon"><i class="ti ti-refresh"></i></div><h3>Catálogo en tiempo real</h3><p>Stock y precios actualizados al instante desde tu Google Sheet.</p></div>
+    <div class="feat"><div class="feat-icon"><i class="ti ti-message-circle"></i></div><h3>Pedido por WhatsApp</h3><p>El cliente finaliza el pedido con un clic. Se registra solo en tu Sheet.</p></div>
+    <div class="feat"><div class="feat-icon"><i class="ti ti-chart-line"></i></div><h3>Estadísticas en vivo</h3><p>Ventas, clientes y pedidos visibles arriba en tiempo real.</p></div>
+    <div class="feat"><div class="feat-icon"><i class="ti ti-package"></i></div><h3>Stock automático</h3><p>Cada venta descuenta el stock en tu Google Sheet al instante.</p></div>
+  </div>
+  <div class="divider"></div>
+  <footer>© 2025 TechZone Bolivia · WhatsApp: +591 700 00000</footer>
 </div>
 
-<!-- GRILLA DE PRODUCTOS -->
-<div class="section">
-  <div class="section-header">
-    <span class="section-title">🔥 Más vendidos</span>
-    <a class="view-all" onclick="filterCat('all')">Ver todo →</a>
+<div id="section-zones" style="display:none">
+  <div class="zones" style="margin-top:1.5rem">
+    <h2><i class="ti ti-map-pin"></i> Zonas de entrega</h2>
+    <p>Envío gratis en pedidos mayores a Bs. 500. Para pedidos menores aplica tarifa según ciudad.</p>
+    <div class="zones-grid" id="zonesGrid"><div class="loading" style="grid-column:1/-1"><div class="spinner"></div>Cargando zonas...</div></div>
   </div>
-  <div class="grid" id="productGrid"></div>
+  <div class="divider"></div>
+  <footer>© 2025 TechZone Bolivia · WhatsApp: +591 700 00000</footer>
 </div>
 
-<!-- ZONAS DE ENTREGA -->
-<div class="zones">
-  <h2><i class="ti ti-map-pin"></i> Zonas de entrega</h2>
-  <p>Envío gratis en pedidos mayores a Bs. 500. Para pedidos menores, aplica tarifa reducida según ciudad.</p>
-  <div class="zones-grid" id="zonesGrid"></div>
 </div>
 
-<!-- CARACTERÍSTICAS -->
-<div class="features">
-  <div class="feat">
-    <div class="feat-icon"><i class="ti ti-refresh"></i></div>
-    <h3>Catálogo en tiempo real</h3>
-    <p>El administrador actualiza stock y precios al instante desde cualquier dispositivo.</p>
-  </div>
-  <div class="feat">
-    <div class="feat-icon"><i class="ti ti-message-circle"></i></div>
-    <h3>Pedido por WhatsApp</h3>
-    <p>El cliente finaliza el pedido con un clic directo a WhatsApp con resumen incluido.</p>
-  </div>
-  <div class="feat">
-    <div class="feat-icon"><i class="ti ti-chart-line"></i></div>
-    <h3>Panel de ventas</h3>
-    <p>Estadísticas de productos más vendidos, ciudades con más pedidos y facturación mensual.</p>
-  </div>
-  <div class="feat">
-    <div class="feat-icon"><i class="ti ti-clock"></i></div>
-    <h3>Seguimiento de pedido</h3>
-    <p>El cliente recibe actualizaciones por WhatsApp o email en cada etapa del envío.</p>
-  </div>
-  <div class="feat">
-    <div class="feat-icon"><i class="ti ti-star"></i></div>
-    <h3>Opiniones verificadas</h3>
-    <p>Solo compradores reales pueden dejar reseña — genera confianza y más ventas.</p>
-  </div>
-  <div class="feat">
-    <div class="feat-icon"><i class="ti ti-users"></i></div>
-    <h3>Clientes frecuentes</h3>
-    <p>Sistema de puntos y descuentos para compradores que vuelven — fidelización automática.</p>
-  </div>
-</div>
-
-<div class="divider"></div>
-<footer>© 2025 TechZone Bolivia · Equipos de tecnología para todo el país · WhatsApp: +591 700 00000</footer>
-
-</div><!-- /#app -->
-
-<!-- PANEL CARRITO -->
 <div class="order-panel" id="cartPanel">
   <div class="panel-header">
     <h3>🛒 Tu pedido</h3>
@@ -248,107 +232,132 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;tex
   </div>
   <div class="cart-items" id="cartItems"></div>
   <div class="panel-footer">
+    <div class="client-form">
+      <input type="text" id="clientName"  placeholder="👤 Tu nombre completo">
+      <input type="tel"  id="clientPhone" placeholder="📱 Tu WhatsApp (ej: 70000000)">
+    </div>
     <select class="zone-select" id="zoneSelect" onchange="updateTotal()">
       <option value="">📍 Selecciona tu ciudad</option>
-      <option value="0">Santa Cruz de la Sierra (Gratis)</option>
-      <option value="0">Cochabamba (Gratis)</option>
-      <option value="0">La Paz (Gratis)</option>
-      <option value="25">Sucre — Bs. 25</option>
-      <option value="30">Oruro — Bs. 30</option>
-      <option value="35">Potosí — Bs. 35</option>
-      <option value="40">Trinidad — Bs. 40</option>
-      <option value="45">Cobija — Bs. 45</option>
-      <option value="50">Tarija — Bs. 50</option>
     </select>
     <div class="total-row"><span>Subtotal</span><span id="subtotalVal">Bs. 0</span></div>
-    <div class="total-row"><span>Envío</span><span id="shipVal" style="color:var(--accent)">—</span></div>
+    <div class="total-row"><span>Envío</span><span id="shipVal">—</span></div>
     <div class="total-row big"><span>Total</span><span id="totalVal">Bs. 0</span></div>
-    <button class="checkout-btn" onclick="checkout()">Hacer pedido por WhatsApp →</button>
+    <div class="saving-msg" id="savingMsg"><i class="ti ti-loader"></i> Registrando pedido en Sheets...</div>
+    <button class="checkout-btn" id="checkoutBtn" onclick="checkout()">Hacer pedido por WhatsApp →</button>
   </div>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script>
-// =============================================
-// DATOS — PRODUCTOS
-// =============================================
-const products = [
-  {id:1,  name:'Laptop HP Pavilion 15',          brand:'HP',       cat:'laptops',    price:3250, old:3800, emoji:'💻', rating:4.8, reviews:142, badge:'Oferta', ship:true},
-  {id:2,  name:'iPhone 15 Pro 128GB',             brand:'Apple',    cat:'phones',     price:8900, old:null, emoji:'📱', rating:4.9, reviews:98,  badge:'Hot',   ship:true},
-  {id:3,  name:'Auriculares Sony WH-1000XM5',     brand:'Sony',     cat:'audio',      price:1450, old:1750, emoji:'🎧', rating:4.9, reviews:213, badge:'Top',   ship:true},
-  {id:4,  name:'Samsung Galaxy S24',              brand:'Samsung',  cat:'phones',     price:6200, old:null, emoji:'📲', rating:4.7, reviews:77,  badge:null,    ship:true},
-  {id:5,  name:'iPad Pro 11" M4',                 brand:'Apple',    cat:'tablets',    price:6800, old:null, emoji:'📟', rating:4.9, reviews:54,  badge:'Nuevo', ship:true},
-  {id:6,  name:'Mouse Logitech MX Master 3S',     brand:'Logitech', cat:'accesorios', price:420,  old:490,  emoji:'🖱️', rating:4.8, reviews:189, badge:null,    ship:false},
-  {id:7,  name:'Laptop Lenovo IdeaPad 5',         brand:'Lenovo',   cat:'laptops',    price:2800, old:null, emoji:'🖥️', rating:4.6, reviews:66,  badge:null,    ship:true},
-  {id:8,  name:'Teclado Mecánico Keychron K2',    brand:'Keychron', cat:'accesorios', price:680,  old:null, emoji:'⌨️', rating:4.7, reviews:103, badge:'Free',  ship:true},
-  {id:9,  name:'Bocina JBL Charge 5',             brand:'JBL',      cat:'audio',      price:750,  old:900,  emoji:'🔊', rating:4.8, reviews:167, badge:'Oferta',ship:false},
-  {id:10, name:'Monitor LG 27" 4K',               brand:'LG',       cat:'accesorios', price:2200, old:null, emoji:'🖥️', rating:4.7, reviews:45,  badge:null,    ship:true},
-  {id:11, name:'Samsung Galaxy Tab S9',           brand:'Samsung',  cat:'tablets',    price:4200, old:4900, emoji:'📋', rating:4.6, reviews:38,  badge:'Oferta',ship:true},
-  {id:12, name:'AirPods Pro 2ª Gen',              brand:'Apple',    cat:'audio',      price:1100, old:null, emoji:'🎵', rating:4.9, reviews:231, badge:'Hot',   ship:true},
-];
+let apiUrl = (typeof SHEET_API_URL !== 'undefined') ? SHEET_API_URL : '';
+const saved = sessionStorage.getItem('tz_api_url');
+if (saved) apiUrl = saved;
+if (apiUrl && apiUrl !== 'PEGA_TU_URL_AQUI') {
+  document.getElementById('configBanner').classList.add('hidden');
+}
 
-// =============================================
-// DATOS — ZONAS DE ENVÍO
-// =============================================
-const zones = [
-  {name:'Santa Cruz',  icon:'🏙️', price:'Gratis',  days:'1-2 días', free:true},
-  {name:'Cochabamba',  icon:'🌄', price:'Gratis',  days:'2-3 días', free:true},
-  {name:'La Paz',      icon:'⛰️', price:'Gratis',  days:'2-3 días', free:true},
-  {name:'Sucre',       icon:'🏛️', price:'Bs. 25',  days:'3-4 días', free:false},
-  {name:'Oruro',       icon:'🏔️', price:'Bs. 30',  days:'3-5 días', free:false},
-  {name:'Potosí',      icon:'⛏️', price:'Bs. 35',  days:'4-5 días', free:false},
-  {name:'Trinidad',    icon:'🌿', price:'Bs. 40',  days:'4-6 días', free:false},
-  {name:'Tarija',      icon:'🍇', price:'Bs. 50',  days:'4-6 días', free:false},
-];
+function saveApiUrl() {
+  const val = document.getElementById('urlInput').value.trim();
+  if (!val.startsWith('http')) { showToast('URL inválida', true); return; }
+  apiUrl = val;
+  sessionStorage.setItem('tz_api_url', val);
+  document.getElementById('configBanner').classList.add('hidden');
+  loadAll();
+  showToast('✅ URL guardada — cargando datos...');
+}
 
-let cart = {};
-let activeCat = 'all';
+let products = [], zones = [], cart = {}, activeCat = 'all';
 
-// =============================================
-// FILTROS Y RENDERIZADO
-// =============================================
-function filterCat(cat) {
-  activeCat = cat;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  const btn = document.getElementById('f-' + cat);
-  if (btn) btn.classList.add('active');
-  renderProducts();
+async function loadAll() { await Promise.all([loadProducts(), loadZones(), loadStats()]); }
+
+async function loadProducts() {
+  if (!apiUrl || apiUrl === 'PEGA_TU_URL_AQUI') {
+    products = [
+      {id:1,name:'Laptop HP Pavilion 15',brand:'HP',cat:'laptops',price:3250,old:3800,emoji:'💻',stock:15,badge:'Oferta',ship:true},
+      {id:2,name:'iPhone 15 Pro 128GB',brand:'Apple',cat:'phones',price:8900,old:null,emoji:'📱',stock:8,badge:'Hot',ship:true},
+      {id:3,name:'Auriculares Sony WH-1000XM5',brand:'Sony',cat:'audio',price:1450,old:1750,emoji:'🎧',stock:20,badge:'Top',ship:true},
+      {id:4,name:'Samsung Galaxy S24',brand:'Samsung',cat:'phones',price:6200,old:null,emoji:'📲',stock:12,badge:null,ship:true},
+      {id:5,name:'iPad Pro 11" M4',brand:'Apple',cat:'tablets',price:6800,old:null,emoji:'📟',stock:6,badge:'Nuevo',ship:true},
+      {id:6,name:'Mouse Logitech MX Master 3S',brand:'Logitech',cat:'accesorios',price:420,old:490,emoji:'🖱️',stock:30,badge:null,ship:false},
+      {id:7,name:'Laptop Lenovo IdeaPad 5',brand:'Lenovo',cat:'laptops',price:2800,old:null,emoji:'🖥️',stock:10,badge:null,ship:true},
+      {id:8,name:'Teclado Mecánico Keychron K2',brand:'Keychron',cat:'accesorios',price:680,old:null,emoji:'⌨️',stock:18,badge:'Free',ship:true},
+      {id:9,name:'Bocina JBL Charge 5',brand:'JBL',cat:'audio',price:750,old:900,emoji:'🔊',stock:0,badge:'Oferta',ship:false},
+      {id:10,name:'Monitor LG 27" 4K',brand:'LG',cat:'accesorios',price:2200,old:null,emoji:'🖥️',stock:7,badge:null,ship:true},
+      {id:11,name:'Samsung Galaxy Tab S9',brand:'Samsung',cat:'tablets',price:4200,old:4900,emoji:'📋',stock:9,badge:'Oferta',ship:true},
+      {id:12,name:'AirPods Pro 2ª Gen',brand:'Apple',cat:'audio',price:1100,old:null,emoji:'🎵',stock:14,badge:'Hot',ship:true},
+    ];
+    renderProducts(); return;
+  }
+  try {
+    const res = await fetch(apiUrl + '?action=getProducts');
+    const data = await res.json();
+    if (data.products) { products = data.products; renderProducts(); }
+  } catch(e) { showToast('Error al cargar productos. Revisa la URL.', true); }
+}
+
+async function loadZones() {
+  if (!apiUrl || apiUrl === 'PEGA_TU_URL_AQUI') {
+    zones = [
+      {name:'Santa Cruz',icon:'🏙️',price:'Gratis',cost:0,days:'1-2 días',free:true},
+      {name:'Cochabamba',icon:'🌄',price:'Gratis',cost:0,days:'2-3 días',free:true},
+      {name:'La Paz',icon:'⛰️',price:'Gratis',cost:0,days:'2-3 días',free:true},
+      {name:'Sucre',icon:'🏛️',price:'Bs. 25',cost:25,days:'3-4 días',free:false},
+      {name:'Oruro',icon:'🏔️',price:'Bs. 30',cost:30,days:'3-5 días',free:false},
+      {name:'Potosí',icon:'⛏️',price:'Bs. 35',cost:35,days:'4-5 días',free:false},
+      {name:'Trinidad',icon:'🌿',price:'Bs. 40',cost:40,days:'4-6 días',free:false},
+      {name:'Cobija',icon:'🌴',price:'Bs. 45',cost:45,days:'5-7 días',free:false},
+      {name:'Tarija',icon:'🍇',price:'Bs. 50',cost:50,days:'4-6 días',free:false},
+    ];
+    renderZones(); populateZoneSelect(); return;
+  }
+  try {
+    const res = await fetch(apiUrl + '?action=getZones');
+    const data = await res.json();
+    if (data.zones) { zones = data.zones; renderZones(); populateZoneSelect(); }
+  } catch(e) { console.error(e); }
+}
+
+async function loadStats() {
+  if (!apiUrl || apiUrl === 'PEGA_TU_URL_AQUI') return;
+  try {
+    const res = await fetch(apiUrl + '?action=getStats');
+    const d = await res.json();
+    document.getElementById('stat-ventas').textContent    = 'Bs. ' + (d.totalVentas||0).toLocaleString();
+    document.getElementById('stat-pedidos').textContent   = d.totalPedidos || 0;
+    document.getElementById('stat-clientes').textContent  = d.totalClientes || 0;
+    document.getElementById('stat-pendientes').textContent= d.pendientes || 0;
+    document.getElementById('stat-stock').textContent     = d.stockBajo || 0;
+  } catch(e) {}
 }
 
 function renderProducts() {
   const q = document.getElementById('searchInput').value.toLowerCase();
   const filtered = products.filter(p => {
     const matchCat = activeCat === 'all' || p.cat === activeCat;
-    const matchQ = p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q);
+    const matchQ   = p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q);
     return matchCat && matchQ;
   });
   const g = document.getElementById('productGrid');
+  if (!filtered.length) { g.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)">Sin resultados.</div>'; return; }
   g.innerHTML = filtered.map(p => {
     const badgeClass = p.badge === 'Hot' ? 'hot' : p.badge === 'Free' ? 'free' : '';
-    const shipTxt = p.ship
-      ? `<div class="ship-info"><i class="ti ti-truck"></i> Envío gratis disponible</div>`
-      : '';
-    return `<div class="pcard" onclick="addToCart(${p.id})">
-      <div class="pimg">
-        ${p.emoji}
+    const outOfStock = p.stock === 0;
+    const lowStock   = p.stock > 0 && p.stock <= 5;
+    const shipTxt    = p.ship ? `<div class="ship-info"><i class="ti ti-truck"></i> Envío gratis disponible</div>` : '';
+    return `<div class="pcard${outOfStock?' out-of-stock':''}" onclick="addToCart(${p.id})">
+      <div class="pimg">${p.emoji}
+        ${outOfStock ? `<span class="stock-badge">Sin stock</span>` : ''}
         ${p.badge ? `<span class="badge ${badgeClass}">${p.badge}</span>` : ''}
       </div>
       <div class="pinfo">
         <div class="pbrand">${p.brand}</div>
         <div class="pname">${p.name}</div>
-        <div class="prating">
-          <span class="stars">★★★★★</span>
-          <span class="rcount">(${p.reviews})</span>
-        </div>
+        <div class="pstock-line">Stock: <span>${p.stock}</span>${lowStock?' ⚠️ Pocas unidades':''}</div>
         <div class="pprice-row">
-          <div>
-            <span class="pprice">Bs. ${p.price.toLocaleString()}</span>
-            ${p.old ? `<span class="pprice-old">Bs. ${p.old.toLocaleString()}</span>` : ''}
-          </div>
-          <button class="add-btn" onclick="event.stopPropagation();addToCart(${p.id})">
-            <i class="ti ti-plus"></i>
-          </button>
-        </div>
-        ${shipTxt}
+          <div><span class="pprice">Bs. ${p.price.toLocaleString()}</span>${p.old?`<span class="pprice-old">Bs. ${p.old.toLocaleString()}</span>`:''}</div>
+          <button class="add-btn" onclick="event.stopPropagation();addToCart(${p.id})"><i class="ti ti-plus"></i></button>
+        </div>${shipTxt}
       </div>
     </div>`;
   }).join('');
@@ -359,29 +368,54 @@ function renderZones() {
     <div class="zone-card">
       <div class="zone-icon">${z.icon}</div>
       <div class="zone-name">${z.name}</div>
-      <div class="zone-price ${z.free ? 'free' : 'paid'}">${z.price}</div>
+      <div class="zone-price ${z.free?'free-price':'paid-price'}">${z.price}</div>
       <div class="zone-days">${z.days}</div>
     </div>`).join('');
 }
 
-// =============================================
-// CARRITO
-// =============================================
-function addToCart(id) {
-  cart[id] = (cart[id] || 0) + 1;
-  updateCartUI();
-  const panel = document.getElementById('cartPanel');
-  if (!panel.classList.contains('open')) panel.classList.add('open');
+function populateZoneSelect() {
+  const sel = document.getElementById('zoneSelect');
+  sel.innerHTML = '<option value="">📍 Selecciona tu ciudad</option>';
+  zones.forEach(z => {
+    const label = z.free ? `${z.name} (Gratis)` : `${z.name} — ${z.price}`;
+    sel.innerHTML += `<option value="${z.cost}">${label}</option>`;
+  });
 }
 
-function removeFromCart(id) {
-  delete cart[id];
-  updateCartUI();
+function filterCat(cat) {
+  activeCat = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('f-' + cat);
+  if (btn) btn.classList.add('active');
+  renderProducts();
 }
+
+function showSection(sec) {
+  document.getElementById('section-catalog').style.display = sec === 'catalog' ? '' : 'none';
+  document.getElementById('section-zones').style.display   = sec === 'zones' ? '' : 'none';
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('nav-' + sec).classList.add('active');
+}
+
+function addToCart(id) {
+  const p = products.find(x => x.id == id);
+  if (!p || p.stock === 0) return;
+  const curQty = cart[id] || 0;
+  if (curQty >= p.stock) { showToast('No hay más stock disponible', true); return; }
+  cart[id] = curQty + 1;
+  updateCartUI();
+  if (!document.getElementById('cartPanel').classList.contains('open'))
+    document.getElementById('cartPanel').classList.add('open');
+  showToast('✓ ' + p.name + ' agregado');
+}
+
+function removeFromCart(id) { delete cart[id]; updateCartUI(); }
 
 function changeQty(id, delta) {
+  const p = products.find(x => x.id == id);
   cart[id] = (cart[id] || 0) + delta;
   if (cart[id] <= 0) delete cart[id];
+  else if (p && cart[id] > p.stock) { cart[id] = p.stock; showToast('Límite de stock', true); }
   updateCartUI();
 }
 
@@ -389,81 +423,88 @@ function updateCartUI() {
   const total = Object.values(cart).reduce((s, q) => s + q, 0);
   document.getElementById('cartCount').textContent = total;
   const items = document.getElementById('cartItems');
-  const keys = Object.keys(cart);
+  const keys  = Object.keys(cart);
   if (!keys.length) {
     items.innerHTML = `<div class="empty-cart"><i class="ti ti-shopping-cart"></i>Tu carrito está vacío</div>`;
   } else {
     items.innerHTML = keys.map(id => {
-      const p = products.find(x => x.id == id);
-      const q = cart[id];
+      const p = products.find(x => x.id == id); const q = cart[id];
       return `<div class="cart-item">
         <div class="ci-emoji">${p.emoji}</div>
         <div class="ci-info">
           <div class="ci-name">${p.name}</div>
-          <div class="ci-price">Bs. ${(p.price * q).toLocaleString()}</div>
+          <div class="ci-price">Bs. ${(p.price*q).toLocaleString()}</div>
           <div class="ci-qty">
-            <button class="qty-btn" onclick="changeQty(${id}, -1)">−</button>
+            <button class="qty-btn" onclick="changeQty(${id},-1)">−</button>
             <span class="qty-num">${q}</span>
-            <button class="qty-btn" onclick="changeQty(${id}, 1)">+</button>
+            <button class="qty-btn" onclick="changeQty(${id},1)">+</button>
             <button class="remove-btn" onclick="removeFromCart(${id})"><i class="ti ti-trash"></i></button>
           </div>
-        </div>
-      </div>`;
+        </div></div>`;
     }).join('');
   }
   updateTotal();
 }
 
 function updateTotal() {
-  const subtotal = Object.keys(cart).reduce((s, id) => {
-    const p = products.find(x => x.id == id);
-    return s + (p.price * cart[id]);
-  }, 0);
+  const subtotal = Object.keys(cart).reduce((s,id)=>{ const p=products.find(x=>x.id==id); return s+(p.price*cart[id]); },0);
   const sel = document.getElementById('zoneSelect');
-  const shipCost = sel.value === '' ? 0 : parseInt(sel.value) || 0;
+  const shipCost = sel.value === '' ? null : parseInt(sel.value) || 0;
   document.getElementById('subtotalVal').textContent = 'Bs. ' + subtotal.toLocaleString();
-  document.getElementById('shipVal').textContent =
-    shipCost === 0 ? (sel.value === '' ? '—' : 'Gratis') : 'Bs. ' + shipCost;
-  if (shipCost === 0 && sel.value !== '') {
-    document.getElementById('shipVal').style.color = 'var(--accent)';
-  } else {
-    document.getElementById('shipVal').style.color = '#FFB800';
-  }
-  document.getElementById('totalVal').textContent = 'Bs. ' + (subtotal + shipCost).toLocaleString();
+  const shipEl = document.getElementById('shipVal');
+  if (shipCost === null) { shipEl.textContent='—'; shipEl.style.color='var(--muted)'; }
+  else if (shipCost === 0) { shipEl.textContent='Gratis'; shipEl.style.color='var(--accent)'; }
+  else { shipEl.textContent='Bs. '+shipCost; shipEl.style.color='#FFB800'; }
+  document.getElementById('totalVal').textContent = 'Bs. '+(subtotal+(shipCost||0)).toLocaleString();
 }
 
-function toggleCart() {
-  document.getElementById('cartPanel').classList.toggle('open');
-}
+function toggleCart() { document.getElementById('cartPanel').classList.toggle('open'); }
 
-// =============================================
-// CHECKOUT — WHATSAPP
-// =============================================
-function checkout() {
+async function checkout() {
   const keys = Object.keys(cart);
-  if (!keys.length) { alert('Agrega productos primero'); return; }
-  const cityEl = document.getElementById('zoneSelect');
-  const city = cityEl.options[cityEl.selectedIndex].text || 'Sin especificar';
-  let msg = 'Hola TechZone! Quiero hacer un pedido:%0A%0A';
-  keys.forEach(id => {
-    const p = products.find(x => x.id == id);
-    msg += `• ${p.name} x${cart[id]} — Bs. ${(p.price * cart[id]).toLocaleString()}%0A`;
-  });
-  const sub = Object.keys(cart).reduce((s, id) => {
-    const p = products.find(x => x.id == id);
-    return s + (p.price * cart[id]);
-  }, 0);
-  msg += `%0ATotal: Bs. ${sub.toLocaleString()}%0ACiudad: ${city}`;
-  window.open('https://wa.me/59170000000?text=' + msg, '_blank');
+  if (!keys.length) { showToast('Agrega productos primero', true); return; }
+  const sel = document.getElementById('zoneSelect');
+  if (!sel.value && sel.value !== '0') { showToast('Selecciona tu ciudad de entrega', true); return; }
+  const cityName   = sel.options[sel.selectedIndex].text;
+  const shipCost   = parseInt(sel.value) || 0;
+  const clientName = document.getElementById('clientName').value.trim();
+  const clientPhone= document.getElementById('clientPhone').value.trim();
+  const items = keys.map(id => { const p=products.find(x=>x.id==id); return {id:p.id,name:p.name,qty:cart[id],price:p.price,subtotal:p.price*cart[id]}; });
+  const subtotal = items.reduce((s,i)=>s+i.subtotal,0);
+  const total    = subtotal + shipCost;
+  const order    = {clientName,clientPhone,city:cityName,items,subtotal,shipCost,total};
+
+  if (apiUrl && apiUrl !== 'PEGA_TU_URL_AQUI') {
+    const btn = document.getElementById('checkoutBtn');
+    const msg = document.getElementById('savingMsg');
+    btn.disabled = true; msg.style.display = 'block';
+    try { await fetch(apiUrl, {method:'POST', body:JSON.stringify({action:'saveOrder',order})}); showToast('✅ Pedido guardado en Sheets'); }
+    catch(e) { showToast('No se pudo registrar (continúa igual)', true); }
+    btn.disabled = false; msg.style.display = 'none';
+  }
+
+  let wa = 'Hola TechZone! Quiero hacer un pedido:%0A%0A';
+  items.forEach(i => { wa += `• ${i.name} x${i.qty} — Bs. ${i.subtotal.toLocaleString()}%0A`; });
+  wa += `%0ASubtotal: Bs. ${subtotal.toLocaleString()}`;
+  wa += `%0AEnvío: ${shipCost===0?'Gratis':'Bs. '+shipCost}`;
+  wa += `%0ATotal: Bs. ${total.toLocaleString()}`;
+  wa += `%0ACiudad: ${cityName}`;
+  if (clientName)  wa += `%0ANombre: ${clientName}`;
+  if (clientPhone) wa += `%0AWha: ${clientPhone}`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${wa}`, '_blank');
+
+  cart = {}; updateCartUI(); toggleCart();
+  setTimeout(loadStats, 3000);
 }
 
-// =============================================
-// INIT
-// =============================================
-renderProducts();
-renderZones();
-updateCartUI();
-</script>
+function showToast(msg, isError=false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isError?' error':'');
+  setTimeout(()=>{ t.className='toast'; }, 3000);
+}
 
+loadAll();
+</script>
 </body>
 </html>
